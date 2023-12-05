@@ -2,7 +2,7 @@
 $start = microtime(true);
 $sum1 = $sum2 = 0;
 $gears = [];
-function test(array $file, int $x, int $y, int &$add, array &$gear)
+function test(array $file, int $x, int $y, int &$add, array &$gear): void
 {
     $test = $file[$x][$y];
     // echo $x . ':' . $y . '=>' . $test . PHP_EOL;
