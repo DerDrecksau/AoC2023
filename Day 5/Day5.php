@@ -84,5 +84,5 @@ foreach ($maps as $map) {
     $seedRanges = $newSeedRanges;
     $seeds = $newSeeds;
 }
-echo min($seeds) . PHP_EOL . min(array_column($seedRanges, 0)) . PHP_EOL;
 echo (microtime(true) - $start) * 1000 . 'ms' . PHP_EOL;
+echo min($seeds) . PHP_EOL . min(array_column($seedRanges, 0)) . PHP_EOL;

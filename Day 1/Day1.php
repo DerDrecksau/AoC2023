@@ -12,5 +12,5 @@ foreach ($file as $line) {
         $sum2 += $d;
     }
 }
-echo $sum1 . PHP_EOL . $sum2 . PHP_EOL;
 echo (microtime(true) - $start) * 1000 . 'ms' . PHP_EOL;
+echo $sum1 . PHP_EOL . $sum2 . PHP_EOL;

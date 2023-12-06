@@ -18,5 +18,5 @@ foreach ($file as $line) {
     $sum1 += $possible * $game;
     $sum2 += $min['red'] * $min['green'] * $min['blue'];
 }
-echo $sum1 . PHP_EOL . $sum2 . PHP_EOL;
 echo (microtime(true) - $start) * 1000 . 'ms' . PHP_EOL;
+echo $sum1 . PHP_EOL . $sum2 . PHP_EOL;
