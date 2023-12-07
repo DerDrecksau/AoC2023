@@ -2,8 +2,8 @@
 $start = microtime(true);
 $sum1 = $sum2 = $game = 0;
 $max = ['red' => 12, 'green' => 13, 'blue' => 14];
-$file = file("input.txt");
-foreach ($file as $line) {
+$file = fopen("input.txt", "r");
+while (($line = fgets($file)) != null) {
     $possible = 1;
     ++$game;
     $min = ['red' => 0, 'green' => 0, 'blue' => 0];

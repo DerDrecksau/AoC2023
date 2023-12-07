@@ -2,8 +2,8 @@
 $start = microtime(true);
 $values = array_flip(range(0, 9)) + array_flip(['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']);
 $sum1 = $sum2 = 0;
-$file = file("input.txt");
-foreach ($file as $line) {
+$file = fopen("input.txt", "r");
+while (($line = fgets($file)) != null) {
     if (preg_match("/^[^\d]*(\d).*?(?:(\d)[^\d]*)?$/", $line, $matches)) {
         $sum1 += intval($matches[1]) * 10 + intval($matches[2] ?? $matches[1]);
     }

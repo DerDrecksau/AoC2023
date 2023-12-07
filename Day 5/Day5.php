@@ -3,15 +3,18 @@
 $start = microtime(true);
 $maps = [];
 $map = -1;
-$file = file("input.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-preg_match_all('/(\d+)/', array_shift($file), $seeds);
-$seeds = $seeds[1];
-foreach ($file as $index => $line) {
-    if (preg_match('/(\w+)-to-(\w+) map:/', $line)) {
+$file = fopen("input.txt", "r");
+$seeds = array_map('intval', explode(' ', substr(fgets($file), 7)));
+while (($line = fgets($file)) != null) {
+    if ($line == PHP_EOL) {
+        continue;
+    }
+    $parse =  explode(' ', $line);
+    if (count($parse) == 2) {
         ++$map;
         $maps[] = [];
-    } else if (preg_match_all('/(\d+)/', $line, $matches)) {
-        $maps[$map][] = $matches[1];
+    } else {
+        $maps[$map][] = array_map('intval', $parse);
     }
 }
 $seedRanges = [];
