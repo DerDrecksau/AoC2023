@@ -56,5 +56,5 @@ foreach ($hands as $rank => $hand) {
     $sum2 += ($rank + 1) * $hand[2];
 }
 $time = (microtime(true) - $start) * 1000;
-echo $sum1 . PHP_EOL . $sum2 . PHP_EOL;
+echo $sum1 . ' - ' . $sum2 . PHP_EOL;
 echo  $time . 'ms' . PHP_EOL;

@@ -20,20 +20,16 @@ while ($node != 'ZZZ') {
 }
 $step = 0;
 $steps = [];
-do {
-    $newNodes = [];
-    foreach ($nodes as $node) {
-        if ($node[2] == 'Z') {
-            $steps[] = $sum2;
-        } else {
-            $newNodes[] = $tree[$node][$instructions[$step]];
-        }
+foreach ($nodes as $node) {
+    $step = $sum2 = 0;
+    while ($node[2] != 'Z') {
+        $node = $tree[$node][$instructions[$step]];
+        ++$sum2;
+        $step = ($step + 1) % strlen($instructions);
     }
-    ++$sum2;
-    $step = ($step + 1) % strlen($instructions);
-    $nodes = $newNodes;
-} while (count($nodes) > 0);
+    $steps[] = $sum2;
+}
 $sum2 = array_reduce($steps, fn ($c, $i) => gmp_lcm($c, $i), 1);
 $time = (microtime(true) - $start) * 1000;
-echo $sum1 . PHP_EOL . $sum2 . PHP_EOL;
+echo $sum1 . ' - ' . $sum2 . PHP_EOL;
 echo  $time . 'ms' . PHP_EOL;

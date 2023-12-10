@@ -19,6 +19,6 @@ while (($line = fgets($file)) != null) {
     $sum2 += $min['red'] * $min['green'] * $min['blue'];
 }
 $time = (microtime(true) - $start) * 1000;
-echo $sum1 . PHP_EOL . $sum2 . PHP_EOL;
+echo $sum1 . ' - ' . $sum2 . PHP_EOL;
 echo  $time . 'ms' . PHP_EOL;
 
