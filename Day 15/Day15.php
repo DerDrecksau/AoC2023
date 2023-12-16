@@ -1,12 +1,18 @@
 <?php
 $start = microtime(true);
+$cache = [];
 function myhash(string $input): int
 {
+    global $cache;
+    if (isset($cache[$input])) {
+        return $cache[$input];
+    }
     $sum = 0;
     for ($i = 0; $i < strlen($input); ++$i) {
         $sum += ord($input[$i]);
         $sum = ($sum * 17) % 256;
     }
+    $cache[$input] = $sum;
     return $sum;
 }
 $sum1 = $sum2 = 0;
