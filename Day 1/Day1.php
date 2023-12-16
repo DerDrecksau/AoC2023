@@ -4,6 +4,7 @@ $values = array_flip(range(0, 9)) + array_flip(['zero', 'one', 'two', 'three', '
 $sum1 = $sum2 = 0;
 $file = fopen("input.txt", "r");
 while (($line = fgets($file)) != null) {
+    $line = trim($line);
     if (preg_match("/^[^\d]*(\d).*?(?:(\d)[^\d]*)?$/", $line, $matches)) {
         $sum1 += intval($matches[1]) * 10 + intval($matches[2] ?? $matches[1]);
     }
