@@ -4,8 +4,7 @@ $sum1 = $sum2 = 0;
 $loop = $position = [];
 $file = file("input.txt", FILE_IGNORE_NEW_LINES);
 foreach ($file as $line => $content) {
-    $spos = strpos($content, 'S');
-    if ($spos !== false) {
+    if (($spos = strpos($content, 'S')) !== false) {
         ++$sum1;
         $loop[] = [$line, $spos];
         if (in_array($file[$line - 1][$spos], ['|', 'F', '7'])) {
@@ -15,16 +14,20 @@ foreach ($file as $line => $content) {
         } else {
             $position = [$line + 1, $spos, 2];
         }
+        break;
     }
+}
+if (empty($position)) {
+    exit(1);
 }
 do {
     ++$sum1;
     switch ($file[$position[0]][$position[1]]) {
         case "|":
-            $position = $position[2] == 0 ? [$position[0] - 1, $position[1], 0] : [$position[0] + 1, $position[1], 2];
+            $position[0] += $position[2] == 0 ? -1 : 1;
             break;
         case "-":
-            $position = $position[2] == 1 ? [$position[0], $position[1] + 1, 1] : [$position[0], $position[1] - 1, 3];
+            $position[1] += $position[2] == 1 ? 1 : -1;
             break;
         case "L":
             $loop[] = [$position[0], $position[1]];
