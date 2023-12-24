@@ -15,4 +15,4 @@ $windup = ceil(($time - (sqrt($time * $time - 4 * $record))) / 2);
 $sum2 = ($time - 2 * $windup + 1);
 $time = (microtime(true) - $start) * 1000;
 echo $sum1 . ' - ' . $sum2 . PHP_EOL;
-echo  $time . 'ms' . PHP_EOL;
+echo $time . 'ms' . PHP_EOL;

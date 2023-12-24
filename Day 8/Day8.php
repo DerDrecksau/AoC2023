@@ -32,4 +32,4 @@ foreach ($nodes as $node) {
 $sum2 = array_reduce($steps, fn ($c, $i) => gmp_lcm($c, $i), 1);
 $time = (microtime(true) - $start) * 1000;
 echo $sum1 . ' - ' . $sum2 . PHP_EOL;
-echo  $time . 'ms' . PHP_EOL;
+echo $time . 'ms' . PHP_EOL;

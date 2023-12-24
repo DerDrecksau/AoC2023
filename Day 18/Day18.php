@@ -44,4 +44,4 @@ foreach ($trench2 as $i => $point) {
 $sum2 = (abs($sum2) + $border2) / 2 + 1;
 $time = (microtime(true) - $start) * 1000;
 echo $sum1 . ' - ' . $sum2 . PHP_EOL;
-echo  $time . 'ms' . PHP_EOL;
+echo $time . 'ms' . PHP_EOL;

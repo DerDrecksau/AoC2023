@@ -20,4 +20,4 @@ foreach ($file as $line) {
 }
 $time = (microtime(true) - $start) * 1000;
 echo $sum1 . ' - ' . $sum2 . PHP_EOL;
-echo  $time . 'ms' . PHP_EOL;
+echo $time . 'ms' . PHP_EOL;

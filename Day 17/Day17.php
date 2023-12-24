@@ -88,4 +88,4 @@ do {
 $sum1 = min(min(array_slice($heatloss[HEIGHT - 1][WIDTH - 1][0], 3)), min(array_slice($heatloss[HEIGHT - 1][WIDTH - 1][1], 3)));
 $time = (microtime(true) - $start) * 1000;
 echo $sum1 . ' - ' . $sum2 . PHP_EOL;
-echo  $time . 'ms' . PHP_EOL;
+echo $time . 'ms' . PHP_EOL;

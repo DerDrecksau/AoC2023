@@ -89,4 +89,4 @@ foreach ($maps as $map) {
 }
 $time = (microtime(true) - $start) * 1000;
 echo min($seeds) . ' - ' . min(array_column($seedRanges, 0)) . PHP_EOL;
-echo  $time . 'ms' . PHP_EOL;
+echo $time . 'ms' . PHP_EOL;
